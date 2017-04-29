@@ -1,0 +1,44 @@
+/**
+ *  @file       fonts.css
+ *  @version    0.1
+ *  @date       2017-04-29
+ *  @author     Vo, Nhu-Hoai Robert <nhuhoai.vo@nhuvo.ch>
+ *  @copyright  NhuVo
+ *  @brief      Load web fonts
+ */
+
+@font-face {
+  font-family: 'DISPLAY FREE TFB';
+  src: url('DISPLAYFREETFB.eot');
+  src: url('DISPLAYFREETFB.eot?#iefix') format('embedded-opentype'),
+        url('DISPLAYFREETFB.woff2') format('woff2'),
+        url('DISPLAYFREETFB.woff') format('woff'),
+        url('DISPLAYFREETFB.ttf') format('truetype'),
+        url('DISPLAYFREETFB.svg#DISPLAYFREETFB') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Simple S';
+  src: url('Simple-S.eot');
+  src: url('Simple-S.eot?#iefix') format('embedded-opentype'),
+      url('Simple-S.woff2') format('woff2'),
+      url('Simple-S.woff') format('woff'),
+      url('Simple-S.ttf') format('truetype'),
+      url('Simple-S.svg#Simple-S') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Score Board';
+  src: url('ScoreBoard.eot');
+  src: url('ScoreBoard.eot?#iefix') format('embedded-opentype'),
+      url('ScoreBoard.woff2') format('woff2'),
+      url('ScoreBoard.woff') format('woff'),
+      url('ScoreBoard.ttf') format('truetype'),
+      url('ScoreBoard.svg#ScoreBoard') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
