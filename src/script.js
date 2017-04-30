@@ -60,11 +60,18 @@ var lcd_rows_default = 2;
 /// LCD cols element
 var lcd_rows = $("#lcd_rows");
 /// LCD max border width
-var lcd_border_max = 30;
+var lcd_border_width_max = 30;
 /// LCD default border width
-var lcd_border_default = 10;
-/// LCD border element
-var lcd_border = $("#lcd_border");
+var lcd_border_width_default = 10;
+/// LCD border width element
+var lcd_border_width = $("#lcd_border_width");
+/// LCD border colors
+var lcd_border_colors = ["black", "blue", "green", "orange", "red", "white"];
+/// LCD default border colors
+var lcd_border_colors_default = "black";
+/// LCD border color element
+var lcd_border_color = $("#lcd_border_color");
+
 
 //
 //  Methods
@@ -179,13 +186,24 @@ function populateLists() {
   }
   
   // Populate lcd rows
-  for(var i = 1; i <= lcd_border_max; i++) {
+  for(var i = 1; i <= lcd_border_width_max; i++) {
     var o = $("<option></option>");
     o.text(i);
-    if(i == lcd_border_default) {
+    if(i == lcd_border_width_default) {
       o.prop("selected", true);
     }
-    lcd_border.append(o);
+    lcd_border_width.append(o);
+  }
+  
+  // Populate border colors
+  for(var i = 0; i < lcd_border_colors.length; i++) {
+    var o = $("<option></option>");
+    o.text(lcd_border_colors[i]);
+    o.val(i)
+    if(lcd_border_colors[i] == lcd_border_colors_default) {
+      o.prop("selected", true);
+    }
+    lcd_border_color.append(o);
   }
 }
 
@@ -200,14 +218,15 @@ function updateParam() {
   calculateLetterSize();
   
   // Update lcd display
-  var lcd_width = (font_letter_sizes[font_family.val()] + (font_letter_spacing.val() * 2)) * lcd_cols.val() + (lcd_border.val()) * 2;
+  var lcd_width = (font_letter_sizes[font_family.val()] + (font_letter_spacing.val() * 2)) * lcd_cols.val() + (lcd_border_width.val()) * 2;
   
   lcd.css({
     fontFamily: font_families[font_family.val()],
     fontSize: font_size.val() + "pt",
     color: font_color.val(),
     width: lcd_width + "px",
-    borderWidth: lcd_border.val() + "px"
+    borderWidth: lcd_border_width.val() + "px",
+    borderColor: lcd_border_colors[lcd_border_color.val()]
   });
   
   $(".form-text").hide();
