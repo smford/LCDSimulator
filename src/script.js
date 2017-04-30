@@ -59,6 +59,12 @@ var lcd_rows_max = 6;
 var lcd_rows_default = 2;
 /// LCD cols element
 var lcd_rows = $("#lcd_rows");
+/// LCD max padding
+var lcd_padding_max = 30;
+/// LCD default padding
+var lcd_padding_default = 5;
+/// LCD padding element
+var lcd_padding = $("#lcd_padding");
 /// LCD max border width
 var lcd_border_width_max = 30;
 /// LCD default border width
@@ -201,6 +207,16 @@ function populateLists() {
     lcd_border_width.append(o);
   }
   
+  // populate lcd padding
+  for(var i = 1; i <= lcd_padding_max; i++) {
+    var o = $("<option></option>");
+    o.text(i);
+    if(i == lcd_padding_default) {
+      o.prop("selected", true);
+    }
+    lcd_padding.append(o);
+  }
+  
   // Populate border colors
   for(var i = 0; i < lcd_border_colors.length; i++) {
     var o = $("<option></option>");
@@ -235,7 +251,7 @@ function updateParam() {
   calculateLetterSize();
   
   // Update lcd display
-  var lcd_width = (font_letter_sizes[font_family.val()] + (font_letter_spacing.val() * 2)) * lcd_cols.val() + (lcd_border_width.val()) * 2;
+  var lcd_width = (font_letter_sizes[font_family.val()] + (font_letter_spacing.val() * 2)) * lcd_cols.val() + (lcd_border_width.val()) * 2 + (lcd_padding.val()) * 2;
   
   lcd.css({
     fontFamily: font_families[font_family.val()],
@@ -244,7 +260,8 @@ function updateParam() {
     width: lcd_width + "px",
     borderWidth: lcd_border_width.val() + "px",
     borderColor: lcd_border_colors[lcd_border_color.val()],
-    backgroundColor: lcd_background_colors[lcd_background_color.val()]
+    backgroundColor: lcd_background_colors[lcd_background_color.val()],
+    padding: lcd_padding.val()
   });
   
   $(".form-text").hide();
