@@ -33,6 +33,8 @@ var max_h_padding = 30;
 var max_v_padding = 30;
 /// max border size
 var max_border = 30;
+/// LCD text
+var lcd_text = document.getElementById("lcd_text");
 
 
 /// Character simulator (calculating length char)
@@ -118,12 +120,24 @@ var border_color = document.getElementById("border_color");
 var font_color = document.getElementById("font_color");
 var background_color = document.getElementById("background_color");
 
+function display_row(row, txt) {
+  while(txt.length < max_cols) {
+    txt += " ";
+  }
+  
+  for(i = 0; i < txt.length; i++) {
+    document.getElementById("c" + row + "_" + i).innerText = txt.charAt(i);
+  }
+}
+
 function generate_lcd() {
   lcd.innerHTML = "";
-  lcd.style.borderSize = border_size.value;
+  lcd.style.borderWidth = border_size.value + "px";
   lcd.style.borderStyle = "solid";
   lcd.style.borderColor = border_color.value;
   lcd.style.backgroundColor = background_color.value;
+  
+  lcd_text.innerHTML = "";
   
   for(r = 0; r <= rows.value; r++) {    
     var row = document.createElement("span");
@@ -131,12 +145,16 @@ function generate_lcd() {
     row.style.paddingTop = v_padding + "px";
     row.style.paddingBottom = v_padding + "px";
     
+    var input = "<p><b>Line " + (r + 1) + "</b><br /><input type=\"text\" maxlength=\"" + cols.value + "\" size=\"" + cols.value + "\" onkeyup=\"display_row(" + r + ", this.value)\" /></p>";
+    lcd_text.innerHTML += input;
+    
     for(c = 0; c < cols.value; c++) {
       var col = document.createElement("span");
       col.style.display = "inline-block";
       col.style.width = cols.value + "px";
       col.style.paddingLeft = h_padding + "px";
       col.style.paddingRight = h_padding + "px";
+      col.style.textAlign = "center";
       col.id = "c" + r + "_" + c;
       c.innerText = "&nbsp;";
       row.appendChild(col);
