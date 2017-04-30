@@ -4,6 +4,9 @@
 
 ## External source
 
+ -  Libraries
+    - **[Bootstrap](http://www.getbootstrap.com)**
+    - **[jQuery](http://www.jquery.com)**
  -  Fonts
     -  **[Display Free](http://www.dafont.com/fr/display-free-tfb.font)** by zanatlija on [dafont.com](http://www.dafont.com)
     -  **[LCDDot TR](https://fontstruct.com/fontstructions/show/67177/lcddot)** by [BLackX](https://fontstruct.com/fontstructors/6663/blackx) on [fontstruct.com](http://www.fontstruct.com)
