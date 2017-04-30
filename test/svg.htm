@@ -43,6 +43,10 @@
           DOMURL.revokeObjectURL(url);
       };
       img.src = url;
+      
+      canvas.onclick = function() {
+        window.open(this.toDataURL("images/png"));
+      };
     </script>
   </body>
 </html>
