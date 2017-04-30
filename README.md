@@ -2,6 +2,10 @@
 
 *Simulate an LCD display (useful for "screenshot" in manual)*
 
+## Demo
+
+Please [click here](https://www.franicflow.ch/Tools/LCDSimulator).
+
 ## External source
 
  -  Libraries
@@ -14,3 +18,4 @@
     -  **[Simple S](http://www.dafont.com/fr/simple-s.font)** by Stralino on [dafont.com](http://www.dafont.com)
  -  Tools
     -  **[Transfonter](https://transfonter.org/)**, online @font-face converter
+    -  **[SHA384 converter](hash.online-convert.com/sha384-generator)**, online file hash calculator
