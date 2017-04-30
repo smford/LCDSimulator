@@ -21,6 +21,8 @@ var sizes = [0, 0 , 0, 0];
 //  LCD variables
 //
 
+/// LCD element (DOM)
+var lcd = document.getElementById("lcd");
 /// Max cols
 var max_cols = 100;
 /// Max rows
@@ -109,4 +111,39 @@ for(i = 1; i <= max_border; i++) {
     o.selected = "selected";
   }
   border_size.appendChild(o);
+}
+
+var font_size = document.getElementById("font_size");
+var border_color = document.getElementById("border_color");
+var font_color = document.getElementById("font_color");
+var background_color = document.getElementById("background_color");
+
+function generate_lcd() {
+  lcd.innerHTML = "";
+  lcd.style.borderSize = border_size.value;
+  lcd.style.borderStyle = "solid";
+  lcd.style.borderColor = border_color.value;
+  lcd.style.backgroundColor = background_color.value;
+  
+  for(r = 0; r <= rows.value; r++) {    
+    var row = document.createElement("span");
+    row.id = "r" + r;
+    row.style.paddingTop = v_padding + "px";
+    row.style.paddingBottom = v_padding + "px";
+    
+    for(c = 0; c < cols.value; c++) {
+      var col = document.createElement("span");
+      col.style.display = "inline-block";
+      col.style.width = cols.value + "px";
+      col.style.paddingLeft = h_padding + "px";
+      col.style.paddingRight = h_padding + "px";
+      col.id = "c" + r + "_" + c;
+      c.innerText = "&nbsp;";
+      row.appendChild(col);
+    }
+    row.appendChild(document.createElement("br"));
+    
+    lcd.appendChild(row);
+    lcd.style.width = row.offsetWidth + "px";
+  }
 }

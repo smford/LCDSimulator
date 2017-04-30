@@ -20,7 +20,7 @@
     
     <p>
       <b>Font size (pt)</b><br />
-      <select id="size">
+      <select id="font_size">
         <option>7</option>
         <option>9</option>
         <option>12</option>
@@ -33,7 +33,7 @@
     
     <p>
       <b>Font color</b><br />
-      <input type="text" id="color" size="15" maxlength="15" value="Black" />
+      <input type="text" id="font_color" size="15" maxlength="15" value="Black" />
     </p>
     
     <p>
@@ -68,7 +68,15 @@
     
     <p>
       <b>LCD background color</b><br />
-      <input type="text" id="background" size="15" maxlength="15" value="Olive" />
+      <input type="text" id="background_color" size="15" maxlength="15" value="Olive" />
+    </p>
+    
+    <p>
+      <input type="button" value="Generate LCD" onclick="generate_lcd()" />
+    </p>
+    
+    <p>
+      <div id="lcd"></span>
     </p>
     
     <span id="character"></span>
