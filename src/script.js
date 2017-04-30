@@ -148,7 +148,7 @@ var font_color = document.getElementById("font_color");
 var background_color = document.getElementById("background_color");
 
 function display_row(row, txt) {
-  while(txt.length < max_cols) {
+  while(txt.length < cols) {
     txt += " ";
   }
   
