@@ -8,3 +8,13 @@
  *  @details    Any font face here
  */
 
+.lcd_letter {
+  display: inline-block;
+  text-align: center;
+}
+
+#lcd {
+  position: relative;
+  margin: 0 auto;
+  border-style: solid;
+}
