@@ -71,6 +71,12 @@ var lcd_border_colors = ["black", "blue", "green", "orange", "red", "white"];
 var lcd_border_colors_default = "black";
 /// LCD border color element
 var lcd_border_color = $("#lcd_border_color");
+/// LCD background colors list
+var lcd_background_colors = ["black", "blue", "chartreuse", "olive", "white"];
+/// LCD default border colors
+var lcd_background_colors_default = "olive";
+/// LCD border color element
+var lcd_background_color = $("#lcd_background_color");
 
 
 //
@@ -205,6 +211,17 @@ function populateLists() {
     }
     lcd_border_color.append(o);
   }
+  
+  // Populate background colors
+  for(var i = 0; i < lcd_background_colors.length; i++) {
+    var o = $("<option></option>");
+    o.text(lcd_background_colors[i]);
+    o.val(i)
+    if(lcd_background_colors[i] == lcd_background_colors_default) {
+      o.prop("selected", true);
+    }
+    lcd_background_color.append(o);
+  }
 }
 
 /**
@@ -226,7 +243,8 @@ function updateParam() {
     color: font_color.val(),
     width: lcd_width + "px",
     borderWidth: lcd_border_width.val() + "px",
-    borderColor: lcd_border_colors[lcd_border_color.val()]
+    borderColor: lcd_border_colors[lcd_border_color.val()],
+    backgroundColor: lcd_background_colors[lcd_background_color.val()]
   });
   
   $(".form-text").hide();
