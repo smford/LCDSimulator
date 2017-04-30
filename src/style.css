@@ -6,6 +6,10 @@
  *  @copyright  NhuVo
  */
 
-body {
+body, input, select {
   font-family: monospace;
+}
+
+#character {
+  visibility: hidden;
 }
