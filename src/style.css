@@ -1,0 +1,24 @@
+/**
+ *  @file       style.css
+ *  @version    1.0
+ *  @date       2017-04-30
+ *  @author     VO, Nhu-Hoai Robert <nhuhoai.vo@franicflow.ch>
+ *  @copyright  FRANIC Flow Sàrl
+ *  @brief      Main stylesheet file
+ *  @details    Any font face here
+ */
+
+.lcd_letter {
+  display: inline-block;
+  text-align: center;
+}
+
+.info {
+  cursor: pointer;
+}
+
+#lcd {
+  position: relative;
+  margin: 0 auto;
+  border-style: solid;
+}
