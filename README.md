@@ -2,6 +2,10 @@
 
 *Simulate an LCD display (useful for "screenshot" in manual)*
 
+## Demo
+
+Please [click here](https://www.franicflow.ch/Tools/LCDSimulator).
+
 ## External source
 
  -  Libraries
