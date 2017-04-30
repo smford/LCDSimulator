@@ -1,6 +1,6 @@
 /**
  *  @file       fonts.css
- *  @version    0.1
+ *  @version    1.0
  *  @date       2017-04-30
  *  @author     VO, Nhu-Hoai Robert <nhuhoai.vo@franicflow.ch>
  *  @copyright  FRANIC Flow Sàrl
@@ -39,6 +39,18 @@
       url('./fonts/ScoreBoard.woff') format('woff'),
       url('./fonts/ScoreBoard.ttf') format('truetype'),
       url('./fonts/ScoreBoard.svg#ScoreBoard') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'LCDDot TR';
+  src: url('./fonts/LCDDot-TR.eot');
+  src: url('./fonts/LCDDot-TR.eot?#iefix') format('embedded-opentype'),
+      url('./fonts/LCDDot-TR.woff2') format('woff2'),
+      url('./fonts/LCDDot-TR.woff') format('woff'),
+      url('./fonts/LCDDot-TR.ttf') format('truetype'),
+      url('./fonts/LCDDot-TR.svg#LCDDot-TR') format('svg');
   font-weight: normal;
   font-style: normal;
 }

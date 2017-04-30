@@ -1,6 +1,6 @@
 /**
  *  @file       script.js
- *  @version    0.1
+ *  @version    1.0
  *  @date       2017-04-30
  *  @author     VO, Nhu-Hoai Robert <nhuhoai.vo@franicflow.ch>
  *  @copyright  FRANIC Flow Sàrl
@@ -12,7 +12,7 @@
 //
 
 /// Fonts list
-var font_families = ["monospace", "DISPLAY FREE TFB", "Simple S", "Score Board"];
+var font_families = ["monospace", "LCDDot TR", "DISPLAY FREE TFB", "Simple S", "Score Board"];
 /// Default font
 var font_family_default = "monospace";
 /// Font family element
@@ -90,7 +90,7 @@ var lcd_background_color = $("#lcd_background_color");
 //
 
 /**
- *
+ *  Init script when document is ready
  */
 $(document).ready(function() {
   populateLists();
@@ -101,7 +101,8 @@ $(document).ready(function() {
 });
 
 /**
- *
+ *  Some fonts are not monospace type this function get the longuest width char
+ *  in each font.
  */
 function calculateLetterSize() {
   /// Characters list for test size
@@ -133,7 +134,7 @@ function calculateLetterSize() {
 }
 
 /**
- *  
+ *  Populate all select elements
  */
 function populateLists() {
   // Populate font families
@@ -168,7 +169,7 @@ function populateLists() {
   }
   
   // Populate font letter spacing
-  for(var i = 1; i <= font_letter_spacing_max; i++) {
+  for(var i = 0; i <= font_letter_spacing_max; i++) {
     var o = $("<option></option>");
     o.text(i);
     if(i == font_letter_spacing_default) {
@@ -241,7 +242,7 @@ function populateLists() {
 }
 
 /**
- *
+ *  Update LCD display style
  */
 function updateParam() {
   // Empty elements
@@ -253,6 +254,7 @@ function updateParam() {
   // Update lcd display
   var lcd_width = (font_letter_sizes[font_family.val()] + (font_letter_spacing.val() * 2)) * lcd_cols.val() + (lcd_border_width.val()) * 2 + (lcd_padding.val()) * 2;
   
+  // Update LCD display config
   lcd.css({
     fontFamily: font_families[font_family.val()],
     fontSize: font_size.val() + "pt",
@@ -271,6 +273,7 @@ function updateParam() {
     var row = $("<div></div>");
     row.addClass("lcd_row");
     
+    // Create each char
     for(var c = 0; c < lcd_cols.val(); c++) {
       var col = $("<span></span>");
       col.addClass("lcd_letter");
@@ -291,7 +294,7 @@ function updateParam() {
 }
 
 /**
- *
+ *  Update content in the LCD display
  */
 function updateText() {
   for(var r = 0; r < lcd_rows.val(); r++) {
@@ -310,4 +313,18 @@ function updateText() {
       $("#c" + r + "_" + c).text(txt[c]);
     }
   }
+}
+
+/**
+ *  Display fonts copyright
+ */
+function modal_fonts() {
+  $("#myModalLabel").text("Fonts copyright");
+  var content = "<ul><li><b><a href=\"http://www.dafont.com/fr/display-free-tfb.font\" target=\"_blank\">Display Free</a></b> by zanatlija on <a href=\"http://www.dafont.com\" target=\"_blank\">dafont.com</a></li>";
+  content += "<li><b><a href=\"https://fontstruct.com/fontstructions/show/67177/lcddot\" target=\"_blank\">LCDDot TR</a></b> by BLackX on <a href=\"http://www.fontstruct.com\" target=\"_blank\">fontstruct.com</a></li>";
+  content += "<li><b><a href=\"http://www.dafont.com/fr/score-board.font\" target=\"_blank\">Score Board</a></b> by Bou Fonts on <a href=\"http://www.dafont.com\" target=\"_blank\">dafont.com</a></li>";
+  content += "<li><b><a href=\"http://www.dafont.com/fr/simple-s.font\" target=\"_blank\">Simple S</a></b> by Stralino on <a href=\"http://www.dafont.com\" target=\"_blank\">dafont.com</a></li>";
+  content += "</ul>";
+  $("#myModalBody").html(content);
+  $("#myModal").modal();
 }

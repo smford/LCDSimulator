@@ -15,13 +15,28 @@
     
     <a href="https://github.com/nhuhoai/LCDSimulator"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>
   
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel"></h4>
+          </div>
+          <div class="modal-body" id="myModalBody"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
     <h1 class="text-center">LCD display simulator</h1>
     
     <div class="col-md-3">
       <h3>Font parameters</h3>
       
       <div class="form-group">
-        <label for="font_family">Font family</label>
+        <label for="font_family">Font family <span class="glyphicon glyphicon-info-sign info" onclick="modal_fonts()"></span></label>
         <select id="font_family" class="form-control form-param"></select>
       </div>
       
@@ -55,12 +70,12 @@
       </div>
       
       <div class="form-group">
-        <label for="lcd_padding">LCD padding</label>
+        <label for="lcd_padding">LCD padding (px)</label>
         <select id="lcd_padding" class="form-control form-param"></select>
       </div>
       
       <div class="form-group">
-        <label for="lcd_border_width">LCD border width</label>
+        <label for="lcd_border_width">LCD border width (px)</label>
         <select id="lcd_border_width" class="form-control form-param"></select>
       </div>
       

@@ -1,6 +1,6 @@
 /**
  *  @file       style.css
- *  @version    0.1
+ *  @version    1.0
  *  @date       2017-04-30
  *  @author     VO, Nhu-Hoai Robert <nhuhoai.vo@franicflow.ch>
  *  @copyright  FRANIC Flow Sàrl
@@ -11,6 +11,10 @@
 .lcd_letter {
   display: inline-block;
   text-align: center;
+}
+
+.info {
+  cursor: pointer;
 }
 
 #lcd {
