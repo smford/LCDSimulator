@@ -13,7 +13,9 @@
 /// Characters list for test size
 var characters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '*', '%', '/', '\'', '"', '?', '^', '!', '-', '_', ',', ';', '.', ':', '<', '>', '\\'];
 /// Fonts list
-var fonts = ["monospace", "DISPLAY FREE TFB", "Simple S", "Score Board"];
+var font_families = ["monospace", "DISPLAY FREE TFB", "Simple S", "Score Board"];
+/// Font sizes
+var font_sizes = [7, 9, 11, 13, 15, 17, 19, 21, 25, 29];
 /// Max length size list
 var sizes = [0, 0 , 0, 0];
 
@@ -40,14 +42,40 @@ var lcd_text = document.getElementById("lcd_text");
 /// Character simulator (calculating length char)
 var character = document.getElementById("character");
 
-for(f = 0; f < fonts.length; f++) {
+for(f = 0; f < font_families.length; f++) {
   for(c = 0; c < characters.length; c++) {
-    character.style.fontFamily = fonts[f];
+    character.style.fontFamily = font_families[f];
     character.innerText = characters[c];
     if(character.offsetWidth > sizes[f]) {
       sizes[f] = character.offsetWidth;
     }
   }
+}
+
+
+var font_size = document.getElementById("font_size");
+
+for(i = 0; i < font_sizes.length; i++) {
+  var o = document.createElement("option");
+  o.value = font_sizes[i];
+  o.innerText = font_sizes[i];
+  if(font_sizes[i] == 13) {
+    o.selected = "selected";
+  }
+  font_size.appendChild(o);
+}
+
+
+var font_family = document.getElementById("font_family");
+
+for(i = 0; i < font_families.length; i++) {
+  var o = document.createElement("option");
+  o.value = font_families[i];
+  o.innerText = font_families[i];
+  if(font_families[i] == "monospace") {
+    o.selected = "selected";
+  }
+  font_family.appendChild(o);
 }
 
 
@@ -115,7 +143,6 @@ for(i = 1; i <= max_border; i++) {
   border_size.appendChild(o);
 }
 
-var font_size = document.getElementById("font_size");
 var border_color = document.getElementById("border_color");
 var font_color = document.getElementById("font_color");
 var background_color = document.getElementById("background_color");
@@ -126,7 +153,7 @@ function display_row(row, txt) {
   }
   
   for(i = 0; i < txt.length; i++) {
-    document.getElementById("c" + row + "_" + i).innerText = txt.charAt(i);
+    document.getElementById("c" + row + "_" + i).innerHTML = txt.charAt(i);
   }
 }
 
@@ -136,10 +163,13 @@ function generate_lcd() {
   lcd.style.borderStyle = "solid";
   lcd.style.borderColor = border_color.value;
   lcd.style.backgroundColor = background_color.value;
+  lcd.style.color = font_color.value;
+  lcd.style.fontSize = font_size.value + "pt";
+  lcd.style.fontFamily = font_family.value;
   
   lcd_text.innerHTML = "";
   
-  for(r = 0; r <= rows.value; r++) {    
+  for(r = 0; r < rows.value; r++) {    
     var row = document.createElement("span");
     row.id = "r" + r;
     row.style.paddingTop = v_padding + "px";
